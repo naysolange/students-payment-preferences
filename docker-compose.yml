@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:8.0.22
+    container_name: students-payment-preferences-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "33060:33060"
+
+  backend:
+    build:
+      context: .
+      dockerfile: BE/Dockerfile
+    image: be-image
+    container_name: students-payment-preferences-be
+    ports: 
+      - "8080:8080"
+    depends_on:
+      - mysql
+      
+
+
+
+
