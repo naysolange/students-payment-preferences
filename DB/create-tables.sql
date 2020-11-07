@@ -13,4 +13,7 @@ city VARCHAR(100) NOT NULL,
 PRIMARY KEY (id)
 );
 
+INSERT INTO student(name, email, career, birth_date, phone_number, country, city)
+VALUES("Violeta Gonzalez", "violeta@gmail.com", "Data science", "1984-07-04", "+541161507899", "Argentina", "CABA");
+
   
