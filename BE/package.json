@@ -1,0 +1,16 @@
+{
+  "name": "be",
+  "version": "1.0.0",
+  "description": "Students payment preferences Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "author": "Nayla Portas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
