@@ -22,7 +22,17 @@ services:
       - "8080:8080"
     depends_on:
       - mysql
-      
+
+  frontend:
+    build:
+      context: .
+      dockerfile: fe/Dockerfile
+    image: fe-image
+    container_name: students-payment-preferences-fe
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - backend
 
 
 
