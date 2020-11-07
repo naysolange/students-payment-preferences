@@ -5,13 +5,16 @@ services:
     container_name: students-payment-preferences-db
     environment:
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=students
     ports:
-      - "33060:33060"
+      - "3306:3306"
+    volumes:
+      - ./DB/create-tables.sql:/docker-entrypoint-initdb.d/dump.sql
 
   backend:
     build:
-      context: .
-      dockerfile: BE/Dockerfile
+      context: BE
+      dockerfile: Dockerfile
     image: be-image
     container_name: students-payment-preferences-be
     ports: 
