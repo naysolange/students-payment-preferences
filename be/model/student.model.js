@@ -16,7 +16,7 @@ Student.getAll = result => {
     sql.query("SELECT s.id, name, email, career, birth_date, phone_number, country, city, description as payment_option FROM student s INNER JOIN payment_option p ON p.id = s.payment_option_id;", 
     (err, res) => {
       if (err) {
-        console.log("error: ", err);
+        console.log("Error: ", err);
         result(null, err);
         return;
       }
@@ -35,9 +35,20 @@ Student.save = (student, result) => {
     placeholders = [student.name, student.email, student.career, student.birthDate, 
       student.phoneNumber, student.country, student.city, student.paymentOption];
 
-    sql.query(stmt, placeholders);
-
-    console.log(student); 
-  };
+    sql.query(stmt, placeholders,
+      
+      (err) => {
+        if (err) {
+          console.log("Error: ", err);
+          result(err);
+          return
+        } 
+        
+        console.log("Student saved OK", student);
+        result(null);
+        
+      }
+    );
+};
 
 module.exports = Student;

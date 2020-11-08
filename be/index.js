@@ -23,28 +23,8 @@ app.get('/isAlive', function(req, res){
 
 app.get('/students', students.findAll);
 
-app.post('/student', function (req, res){
-	
-	student = {
-		name: req.body.name,
-		email: req.body.email,
-		career: req.body.career,
-		birthDate: req.body.birth_date,
-		phoneNumber: req.body.phone_number,
-		country: req.body.country,
-		city: req.body.city,
-		paymentOption: req.body.payment_option
-	};
+app.post('/student', students.create);
 
-	students.save(student);
-
-	response = {
-		message: 'Student created successfully'
-	};
-	
-	res.status(200).send(response);
-
-});
 
 
 app.listen(port, function(){
