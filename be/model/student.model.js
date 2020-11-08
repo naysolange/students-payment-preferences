@@ -1,4 +1,4 @@
-const sql = require("../db.js");
+const dbConnection = require("../db.js");
 
 const Student = function(student) {
   this.id = student.id;
@@ -13,6 +13,8 @@ const Student = function(student) {
 };
 
 Student.getAll = result => {
+    dbConnection.connect();
+    sql = dbConnection.conn;
     sql.query("SELECT s.id, name, email, career, birth_date, phone_number, country, city, description as payment_option FROM student s INNER JOIN payment_option p ON p.id = s.payment_option_id;", 
     (err, res) => {
       if (err) {
@@ -27,7 +29,8 @@ Student.getAll = result => {
   };
 
 Student.save = (student, result) => {
-
+  dbConnection.connect();
+  sql = dbConnection.conn;
   sql.query("SELECT id from student WHERE email=?", [student.email], (err, rows) => {
 
     if(err) {
