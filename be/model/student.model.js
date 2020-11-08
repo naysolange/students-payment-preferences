@@ -27,28 +27,43 @@ Student.getAll = result => {
   };
 
 Student.save = (student, result) => {
-    stmt = `INSERT INTO student(name, email, career, birth_date, phone_number, country, city, 
-            payment_option_id)
-            select ?, ?, ?, ?, ?, ?, ?, 
-            (select p.id from payment_option p where p.description=?)`
-  
-    placeholders = [student.name, student.email, student.career, student.birthDate, 
+
+  sql.query("SELECT id from student WHERE email=?", [student.email], (err, rows) => {
+
+    if(err) {
+      console.log("Error: ", err);
+      result(err);
+      return
+    }
+
+    if(rows.length) {
+      console.log("Error: ", "The student already exists");
+      err = { message: "The student already exists" }
+      result(err);
+      return
+    } else {
+      console.log("Voy a hacer el create");
+      stmt = `INSERT INTO student(name, email, career, birth_date, phone_number, country, city, 
+        payment_option_id)
+        select ?, ?, ?, ?, ?, ?, ?, 
+        (select p.id from payment_option p where p.description=?)`
+    
+      placeholders = [student.name, student.email, student.career, student.birthDate, 
       student.phoneNumber, student.country, student.city, student.paymentOption];
-
-    sql.query(stmt, placeholders,
-      
-      (err) => {
-        if (err) {
-          console.log("Error: ", err);
-          result(err);
-          return
-        } 
-        
-        console.log("Student saved OK", student);
-        result(null);
-
-      }
-    );
+    
+      sql.query(stmt, placeholders,
+        (err) => {
+          if (err) {
+            console.log("Error: ", err);
+            result(err);
+            return
+          } 
+          console.log("Student saved OK", student);
+          result(null);
+        }
+      );
+    }
+  });
 };
 
 module.exports = Student;

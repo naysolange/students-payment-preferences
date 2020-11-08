@@ -32,11 +32,11 @@ function saveStudent(res, student) {
   Student.save(student, (err) => {
     if (err) {
       res.status(500).send({
-        message: "Some error occurred while saving a student"
+        message: err.message || "Some error occurred while saving a student"
       });
       return;
     } 
-    res.status(204).send({
+    res.status(200).send({
       message: "The student was created successfully"
     });
   });
