@@ -26,4 +26,21 @@ DBConnection.connect = () => {
   }
 }
 
+
+DBConnection.execute = (callback) => {
+  if(!DBConnection.connected) {
+    DBConnection.conn.connect(error => {
+      if (error) {
+        console.error(error);
+      } else {
+        console.log("Successfully connected to the database");
+        DBConnection.connected = true;
+        callback(DBConnection.conn);
+      }
+    });
+  } else {
+    callback(DBConnection.conn);
+  }
+}
+
 module.exports = DBConnection;
