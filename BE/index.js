@@ -8,14 +8,20 @@ const students = require("./controller/student.controller.js");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+// Global controller
+app.get('/*',function(req,res,next){
+    res.header('Content-Type' , 'application/json' );
+    res.header('Access-Control-Allow-Origin' , '*' );
+    next();
+});
+
 app.get('/isAlive', function(req, res){
 	res.status(200).send({
 		message: 'I am alive! =D'
 	});
 });
 
-
-app.get("/students", students.findAll);
+app.get('/students', students.findAll);
 
 
 app.listen(port, function(){
