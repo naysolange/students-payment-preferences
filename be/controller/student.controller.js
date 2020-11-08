@@ -11,3 +11,14 @@ exports.findAll = (req, res) => {
       else res.send(data);
     });
   };
+
+  exports.save = (student) => {
+    Student.save(student, (err) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while saving a student."
+        });
+    });
+  };
+

@@ -26,5 +26,18 @@ Student.getAll = result => {
     });
   };
 
-module.exports = Student;
+Student.save = (student, result) => {
+    stmt = `INSERT INTO student(name, email, career, birth_date, phone_number, country, city, 
+            payment_option_id)
+            select ?, ?, ?, ?, ?, ?, ?, 
+            (select p.id from payment_option p where p.description=?)`
+  
+    placeholders = [student.name, student.email, student.career, student.birthDate, 
+      student.phoneNumber, student.country, student.city, student.paymentOption];
 
+    sql.query(stmt, placeholders);
+
+    console.log(student); 
+  };
+
+module.exports = Student;
