@@ -22,7 +22,6 @@ services:
       - "8080:8080"
     depends_on:
       - mysql
-    command: ["./wait-for.sh", "mysql:3306", "--", "npm", "start"]
 
   frontend:
     build:
@@ -34,7 +33,7 @@ services:
       - "3000:3000"
     depends_on:
       - backend
-    command: ["./wait-for.sh", "backend:8080", "--", "npm", "start"]
+
 
 
 
