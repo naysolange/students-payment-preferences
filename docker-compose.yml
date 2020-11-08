@@ -9,13 +9,13 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./DB/create-tables.sql:/docker-entrypoint-initdb.d/dump.sql
+      - ./db/create-tables.sql:/docker-entrypoint-initdb.d/dump.sql
     command: ["mysqld", "--default-authentication-plugin=mysql_native_password"]
 
   backend:
     build:
       context: .
-      dockerfile: BE/Dockerfile
+      dockerfile: be/Dockerfile
     image: be-image
     container_name: students-payment-preferences-be
     ports: 
