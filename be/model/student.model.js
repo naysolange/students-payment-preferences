@@ -46,7 +46,7 @@ Student.save = (student, result) => {
         
         console.log("Student saved OK", student);
         result(null);
-        
+
       }
     );
 };

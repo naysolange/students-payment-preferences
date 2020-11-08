@@ -5,8 +5,7 @@ exports.findAll = (req, res) => {
     Student.getAll((err, data) => {
       if (err) {
         res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving students."
+          message: "Some error occurred while retrieving students"
         });
       } else res.status(200).send(data);
     });
