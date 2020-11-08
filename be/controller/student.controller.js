@@ -31,12 +31,18 @@ exports.create = (req, res) => {
 function saveStudent(res, student) {
   Student.save(student, (err) => {
     if (err) {
-      res.status(500).send({
-        message: err.message || "Some error occurred while saving a student"
-      });
-      return;
+      if(err.type === "business") {
+        res.status(409).send({
+          message: err.message
+        });
+      } else {
+        res.status(500).send({
+          message: err.message || "Some error occurred while saving a student"
+        });
+      }
+      return
     } 
-    res.status(200).send({
+    res.status(201).send({
       message: "The student was created successfully"
     });
   });

@@ -17,6 +17,7 @@ Student.getAll = result => {
     sql.query("SELECT s.id, name, email, career, birth_date, phone_number, country, city, description as payment_option FROM student s INNER JOIN payment_option p ON p.id = s.payment_option_id;", 
     (err, res) => {
       if (err) {
+        err.type = "application";
         console.log("Error: ", err);
         result(null, err);
         return;
@@ -32,6 +33,7 @@ Student.save = (student, result) => {
   dbConnection.execute((sql) => {
     sql.query("SELECT id from student WHERE email=?", [student.email], (err, rows) => {
       if(err) {
+        err.type = "application";
         console.log("Error: ", err);
         result(err);
         return
@@ -39,7 +41,7 @@ Student.save = (student, result) => {
   
       if(rows.length) {
         console.log("Error: ", "The student already exists");
-        err = { message: "The student already exists" }
+        err = { message: "The student already exists", type: "business"}
         result(err);
         return
       } else {
@@ -56,6 +58,7 @@ Student.save = (student, result) => {
           (err) => {
             if (err) {
               console.log("Error: ", err);
+              err.type = "application";
               result(err);
               return
             } 
