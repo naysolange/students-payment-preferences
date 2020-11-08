@@ -4,6 +4,10 @@ WORKDIR /students-payment-preferences-be
 
 COPY be/ /students-payment-preferences-be
 
+RUN rm -rf node_modules
+
+RUN npm install
+
 ENTRYPOINT ["npm", "start"]
 
 
