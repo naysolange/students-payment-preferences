@@ -3,7 +3,6 @@ import React from 'react'
     const Students = ({ students }) => {
       return (
         <div>
-          <center><h1>Students Payment Preferences</h1></center>
           {students.map((student) => (
             <div className="card" key={student.id}>
                 <div className="card-body">

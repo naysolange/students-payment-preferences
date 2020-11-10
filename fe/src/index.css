@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Title {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: rgba(91, 43, 167, 0.835);
+  color: #fff;
+}
