@@ -3,17 +3,13 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 8080;
 const students = require("./controller/student.controller.js");
+var cors = require('cors')
 
 // Convierte una petición recibida a objeto JSON
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+app.use(cors());
 
-// Global controller
-app.get('/*',function(req,res,next){
-    res.header('Content-Type' , 'application/json' );
-    res.header('Access-Control-Allow-Origin' , '*' );
-    next();
-});
 
 app.get('/isAlive', function(req, res){
 	res.status(200).send({
