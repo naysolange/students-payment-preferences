@@ -28,21 +28,21 @@ class StudentForm extends Component {
         
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name</label>
-          <input id="name" name="name" type="text" />
+          <input id="name" name="name" type="text" required/>
           <label htmlFor="email">Email</label>
-          <input id="email" name="email" type="email" />
+          <input id="email" name="email" type="email" required/>
           <label htmlFor="phone_number">Phone number</label>
-          <input id="phone_number" name="phone_number" type="text" />
+          <input id="phone_number" name="phone_number" type="number" required/>
           <label htmlFor="birth_date">Birth date</label>
-          <input id="birth_date" name="birth_date" type="text" />
+          <input id="birth_date" name="birth_date" type="text" required/>
           <label htmlFor="country">Country</label>
-          <input id="country" name="country" type="text" />
+          <input id="country" name="country" type="text" required/>
           <label htmlFor="city">City</label>
-          <input id="city" name="city" type="text" />
+          <input id="city" name="city" type="text" required/>
           <label htmlFor="career">Career</label>
-          <input id="career" name="career" type="text" />
+          <input id="career" name="career" type="text" required/>
           <label htmlFor="payment_option">Payment Option</label>
-          <input id="payment_option" name="payment_option" type="text" />
+          <input id="payment_option" name="payment_option" type="text" required/>
           <button>Send</button>
         </form>
       );
