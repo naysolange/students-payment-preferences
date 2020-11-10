@@ -22,3 +22,8 @@ code {
   background-color: rgba(91, 43, 167, 0.835);
   color: #fff;
 }
+
+.menu > a{
+  color: #fff;
+  margin: 0.5em;
+}
