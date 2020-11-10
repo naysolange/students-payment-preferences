@@ -27,3 +27,19 @@ code {
   color: #fff;
   margin: 0.5em;
 }
+
+.formField > label {
+  width: 9em;
+  margin: 1em;
+  margin-left: 2em;
+}
+
+.formField > input, select {
+  width: 16em;
+  height: 2em;
+}
+
+.formButton {
+  margin-top: 2em;
+  margin-left: 13em;
+}
