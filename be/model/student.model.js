@@ -45,7 +45,6 @@ Student.save = (student, result) => {
         result(err);
         return
       } else {
-        console.log("Voy a hacer el create");
         stmt = `INSERT INTO student(name, email, career, birth_date, phone_number, country, city, 
           payment_option_id)
           select ?, ?, ?, ?, ?, ?, ?, 
