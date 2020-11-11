@@ -49,4 +49,36 @@ describe('Student Controller', function() {
         assert.equal(res.status, 500);
       });
     });
+
+    describe('#create()', function() { 
+        it.only('returns an 409 error when the student already exists', function() {
+          res = {status: '', data: []};
+          res.status = (code) => {
+              res.status = code;
+              return res;
+          }
+          res.send = (students) => {
+              res.data = students;
+          }
+          err = {message: "The student already exists", type: "business"};
+          model.save = (student, result) => {
+              result(err);
+          };
+          req = {
+              body: {
+                name: 'Violeta', 
+                email: 'violeta@gmail.com', 
+                career: 'Data science',
+                birth_date: '15-08-1952',
+                phone_number: '+541165559988',
+                country: 'Argentina',
+                city: 'CABA',
+                payment_option: 'Debit card'
+              }
+          }
+          controller.create(req, res);
+          assert.deepEqual(res.data, {message: "The student already exists"});
+          assert.equal(res.status, 409);
+        });
+      });
   });
