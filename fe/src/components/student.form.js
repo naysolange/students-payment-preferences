@@ -31,6 +31,7 @@ class StudentForm extends Component {
           'Content-Type': 'application/json'
         }
       }).then(response => {
+        if (!response.ok) { throw response }
         return response.json();
       })
       .then(json => {
@@ -40,11 +41,12 @@ class StudentForm extends Component {
         })
       })
       .catch(err => {
-        console.log(err);
-        this.setState({
-          showFailAlert: true,
-          message: err.message
-        })
+        err.json().then(json => {
+          this.setState({
+            showFailAlert: true,
+            message: json.message
+          })
+        });
       });
     }
       
