@@ -4,6 +4,7 @@ This is a website to track students preference for paying their courses and sele
 
 ## Install 
 - [Install Docker](https://docs.docker.com/get-docker/) 
+- [Install Docker Compose](https://docs.docker.com/compose/install/) 
 - [Clone this repository](https://github.com/nportas/students-payment-preferences) 
 - Go to the root folder 'student-payment-preferences'
 - Execute `docker-compose up`
