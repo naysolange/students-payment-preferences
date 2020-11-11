@@ -43,3 +43,19 @@ code {
   margin-top: 2em;
   margin-left: 13em;
 }
+
+.success {
+  margin: 1em;
+  background-color: green;
+  color: white;
+  width: 27em;
+  text-align: center;
+}
+
+.fail {
+  margin: 1em;
+  background-color: red;
+  color: white;
+  width: 27em;
+  text-align: center;
+}
