@@ -19,7 +19,7 @@ Student.getAll = result => {
       if (err) {
         err.type = "application";
         console.log("Error: ", err);
-        result(null, err);
+        result(err, null);
         return;
       }
       console.log("Students: ", res);
