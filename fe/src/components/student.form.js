@@ -72,7 +72,7 @@ class StudentForm extends Component {
             </div>
             <div className="formField">
               <label htmlFor="birth_date">Birth date</label>
-              <input id="birth_date" name="birth_date" type="text" onChange={this.handleChange} required/>
+              <input id="birth_date" name="birth_date" type="text" onChange={this.handleChange} required placeholder="yyyy-mm-dd"/>
             </div>
             <div className="formField">
               <label htmlFor="country">Country</label>
