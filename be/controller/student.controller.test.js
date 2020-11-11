@@ -4,7 +4,7 @@ const model = require("../model/student.model.js");
 
 describe('Student Controller', function() {
     describe('#findAll()', function() {
-      it.only('test dependencies', function() {
+      it.only('returns the students when there are no errors', function() {
         res = {status: '', data: []};
         res.status = (code) => {
             res.status = code;
@@ -29,6 +29,24 @@ describe('Student Controller', function() {
         controller.findAll(null, res);
         assert.deepEqual(res.data, students);
         assert.equal(res.status, 200);
+      });
+
+      it.only('returns an error', function() {
+        res = {status: '', data: []};
+        res.status = (code) => {
+            res.status = code;
+            return res;
+        }
+        res.send = (students) => {
+            res.data = students;
+        }
+        err = {};
+        model.getAll = (result) => {
+            result(err, null);
+        };
+        controller.findAll(null, res);
+        assert.deepEqual(res.data, {message: "Some error occurred while retrieving students"});
+        assert.equal(res.status, 500);
       });
     });
   });
