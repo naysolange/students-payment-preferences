@@ -4,7 +4,7 @@
   "description": "Students payment preferences Backend",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js",
+    "test": "mocha ./**/*.test.js",
     "start": "node index.js"
   },
   "author": "Nayla Portas",
@@ -13,7 +13,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "nodemon": "^2.0.6"
+    "mocha": "^8.2.1",
+    "mysql": "^2.18.1"
   }
 }
