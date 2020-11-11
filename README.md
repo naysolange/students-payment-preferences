@@ -6,6 +6,7 @@ This is a website to track students preference for paying their courses and sele
 - [Install Docker](https://docs.docker.com/get-docker/) 
 - [Install Docker Compose](https://docs.docker.com/compose/install/) 
 - [Clone this repository](https://github.com/nportas/students-payment-preferences) 
+- Make sure these ports are not in use: 3000, 3306, 8080 
 - Go to the root folder 'student-payment-preferences'
 - Execute `docker-compose up`
 - When the previous step is done go to http://localhost:3000 and voilá!
