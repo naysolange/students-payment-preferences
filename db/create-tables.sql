@@ -30,9 +30,9 @@ CREATE TABLE student
 ); 
 
 INSERT INTO student(name, email, career, birth_date, phone_number, country, city, payment_option_id)
-VALUES("Violeta Gonzalez", "violeta@gmail.com", "Data science", "1984-07-04", "+541161507899", "Argentina", "CABA", 1);
+VALUES("Violeta Gonzalez", "violeta@gmail.com", "Data science", "1984-07-04", "541161507899", "Argentina", "CABA", 1);
 
 INSERT INTO student(name, email, career, birth_date, phone_number, country, city, payment_option_id)
-VALUES("Santiago Perez", "santiperez@gmail.com", "Data science", "1995-12-02", "+541166989984", "Argentina", "CABA", 4);
+VALUES("Santiago Perez", "santiperez@gmail.com", "Data science", "1995-12-02", "541166989984", "Argentina", "CABA", 4);
 
   
